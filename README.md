@@ -21,7 +21,7 @@ What features will be supported in the first beta?
 - MSBuild project management under solutions
 - Binary files like .RES, .TLB files can be used but will not be required project files
 - A compiled Delphi for Visual Studio project can be loaded in Delphi 7 IDE
-- - A text based resource file (.RC) can be used instead that will compile to .RES
+- A text based resource file (.RC) can be used instead that will compile to .RES
 - Project properties dialog to update the MSBuild project
 - Type library files will be edited by the .IDL file and compiled to .TLB
 - Syntax high lighting
