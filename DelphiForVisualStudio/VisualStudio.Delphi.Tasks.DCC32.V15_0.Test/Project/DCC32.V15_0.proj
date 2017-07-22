@@ -1,0 +1,61 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Visual Studio -->
+    <ProjectGuid>{8571a20c-2259-4704-9d5e-87a5638f9e46}</ProjectGuid>
+    <!-- Visual Studio -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <!-- Visual Studio -->
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <!-- CodeGear - DCC_DCCCompiler -->
+    <DelphiCompiler>DCC32</DelphiCompiler>
+    <DelphiCompilerVersion>V15_0</DelphiCompilerVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiConsoleAssembly)' == 'true'">
+    <DefineConstants>CONSOLEAPP</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- CodeGear - DelphiCompile -->
+    <Compile Include="DCC32V15_0Test.dpr">
+      <!-- CodeGear - MainSource -->
+      <SubType>MainSource</SubType>
+    </Compile>
+    <!-- CodeGear - DCCReference -->
+    <Compile Include="Unit1.pas">
+      <!-- CodeGear - <Form>Form1</Form> -->
+      <SubType>Form:Form1</SubType>
+    </Compile>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(TestDelphiIncludePath)' == 'true'">
+    <DefineConstants>$(DefineConstants);TestDelphiIncludePath</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TestDelphiIncludePath)' == 'true'">
+    <DelphiIncludePath Include="Test Path1\"/>
+    <DelphiIncludePath Include="Test Path2\"/>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(TestRuntimePackages)' == 'true'">
+    <DelphiRuntimePackages>vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;vcldb;dsnapcon;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;</DelphiRuntimePackages>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TestObjectPath)' == 'true'">
+    <DelphiObjectPath Include="Test Path1\"/>
+    <DelphiObjectPath Include="Test Path2"/>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TestResourcePath)' == 'true'">
+    <DelphiResourcePath Include="Test Path1\"/>
+    <DelphiResourcePath Include="Test Path2"/>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TestUnitSearchPath)' == 'true'">
+    <DelphiUnitSearchPath Include="Test Path1\"/>
+    <DelphiUnitSearchPath Include="Test Path2"/>
+  </ItemGroup>
+
+  <Import Project="$(VisualStudioForDelphiPath)Targets\VisualStudio.Delphi.Tasks.Targets" />
+</Project>

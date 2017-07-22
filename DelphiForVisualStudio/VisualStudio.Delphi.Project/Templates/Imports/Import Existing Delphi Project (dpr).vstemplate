@@ -1,0 +1,23 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Import Existing Delphi Project (dpr)</Name>
+    <Description>Imports an existing Delphi project file into a Delphi for Visual Studio project file.</Description>
+    <Icon/>
+    <ProjectType>Delphi</ProjectType>
+    <SortOrder>50</SortOrder>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>DelphiImport</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="Import.xdelphiproj" TargetFileName="$safeprojectname$.delphiproj" ReplaceParameters="true">
+<!--      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.dpr" OpenInEditor="false">Project1.dpr</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.dof" OpenInEditor="false">Project1.dof</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.cfg" OpenInEditor="false">Project1.cfg</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.brc" OpenInEditor="false">Project1.brc</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Unit1.pas</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="false">Unit1.dfm</ProjectItem>-->
+    </Project>
+  </TemplateContent>
+</VSTemplate>

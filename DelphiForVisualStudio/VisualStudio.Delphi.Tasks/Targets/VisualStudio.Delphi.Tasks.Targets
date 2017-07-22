@@ -1,0 +1,119 @@
+﻿<Project InitialTargets="Target_CheckForInvalidConfigurationAndPlatform" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <BuildDependencies>ProcessDelphiProject;CreateResourceSource;</BuildDependencies>
+  </PropertyGroup>
+
+  <!-- Create full File name for the compiler -->
+  <PropertyGroup>
+    <!-- If the project file has the CompilerTargetsPath and it is set elsewhere do not change it. -->
+    <CompilerTargetsPath Condition="'$(CompilerTargetsPath)'==''">$(VisualStudioForDelphiPath)Targets\</CompilerTargetsPath>
+    <DelphiCompilerTargetsFile>$(CompilerTargetsPath)VisualStudio.Delphi.Tasks.$(DelphiCompiler).$(DelphiCompilerVersion).Targets</DelphiCompilerTargetsFile>
+    <CompilerTargetsFile>$(DelphiCompilerTargetsFile)</CompilerTargetsFile>
+    <CompilerTargetsFile Condition="!Exists('$(CompilerTargetsFile)')">$(VisualStudioForDelphiPath)Targets\VisualStudio.Delphi.Tasks.None.Targets</CompilerTargetsFile>
+
+  </PropertyGroup>
+  <!-- Import compiler targets, Build target must be found in this import -->
+  <Import Project="$(CompilerTargetsFile)"/>
+  <UsingTask TaskName="DelphiResourceBuilder" AssemblyFile="$(VisualStudioForDelphiPath)VisualStudio.Delphi.Tasks.dll"/>
+  <UsingTask TaskName="DelphiProjectProcessor" AssemblyFile="$(VisualStudioForDelphiPath)VisualStudio.Delphi.Tasks.dll"/>
+
+  <Target Name="ProcessDelphiProject">
+    <Message Text="Processing Project File"/>
+    <DelphiProjectProcessor
+        Compile="@(Compile)"
+        CompileDelphiResource="@(CompileDelphiResource)"
+        EmbeddedResource="@(EmbeddedResource)"
+        AutoCreateResource="$(DelphiAutoCreateResource)"
+        >
+      <Output TaskParameter="AutoCreateResource" PropertyName="Local_AutoCreateResource"/>
+      <Output TaskParameter="ProjectName" PropertyName="DelphiProjectName"/>
+      <Output TaskParameter="MainSourceCount" PropertyName="Local_MainSourceCount"/>
+      <Output TaskParameter="ProjectFileName" PropertyName="DelphiProjectFileName"/>
+    </DelphiProjectProcessor>
+    <Error Condition="'$(Local_MainSourceCount)' == '0'" Text="There is no .DPR or .DPK file marked as the MainSource file for SubType property."/>
+    <Error Condition="'$(Local_MainSourceCount)' != '1'" Text="There are more than one MainSource files."/>
+
+    <Warning Condition="'$(Local_AutoCreateResource)' == 'false' and '$(DelphiAutoCreateResource)' == 'true'"
+             Text="Auto creation of resource file is disabled because a $(DelphiProjectName).res or $(DelphiProjectName).rc file may exist."/>
+    <CreateProperty Condition="'$(Local_AutoCreateResource)' == 'false' and '$(DelphiAutoCreateResource)' == 'true'"  Value="false">
+      <Output TaskParameter="Value" PropertyName="DelphiAutoCreateResource"/>
+    </CreateProperty>
+  </Target>
+  <!-- builds a project.RC file if needed -->
+  <Target Name="CreateResourceSource" Condition="'$(DelphiAutoCreateResource)' == 'true'">
+    <Message Text="Creating resource file '$(DelphiProjectName).rc'"/>
+    <!-- This creates a compilable resource file every time and adds it to the list that will be compiled -->
+    <DelphiResourceBuilder
+        ResourceSourceFile="$(DelphiProjectName).rc"
+        IncludeVersionInfo="$(DelphiIncludeVersionInfo)"
+        IconFile="$(DelphiIconFile)"
+        MajorVersion="$(DelphiMajorVersion)"
+        MinorVersion="$(DelphiMinorVersion)"
+        ReleaseVersion="$(DelphiReleaseVersion)"
+        BuildVersion="$(DelphiBuildVersion)"
+        DebugBuild="$(DelphiDebugBuild)"
+        SpecialBuild="$(DelphiSpecialBuild)"
+        DLLBuild="$(DelphiDLLBuild)"
+        PreReleaseBuild="$(DelphiPreReleaseBuild)"
+        PrivateBuild="$(DelphiPrivateBuild)"
+        CompanyName="$(DelphiCompanyName)"
+        FileDescription="$(DelphiFileDescription)"
+        FileVersion="$(DelphiFileVersion)"
+        InternalName="$(DelphiInternalName)"
+        LegalCopyright="$(DelphiLegalCopyright)"
+        LegalTrademarks="$(DelphiLegalTrademarks)"
+        OriginalFilename="$(DelphiOriginalFilename)"
+        ProductName="$(DelphiProductName)"
+        ProductVersion="$(DelphiProductVersion)"
+        Comments="$(DelphiComments)"
+        CustomVersionInfo="$(DelphiCustomVersionInfo)"
+        AutoUpdateFileVersion="$(DelphiAutoUpdateFileVersion)"
+        AutoUpdateProductVerion="$(DelphiAutoUpdateProductVerion)"
+        LocalID="$(DelphiAssemblyInfoLocalID)"
+        CodePage="$(DelphiAssemblyInfoCodePage)"
+    >
+      <Output TaskParameter="CompileDelphiResource" ItemName="CompileDelphiResource"/>
+    </DelphiResourceBuilder>
+  </Target>
+
+  <!--   <PropertyGroup Condition=" '$(OutputPath)' == '' ">
+   
+    <CreateItem 
+      Include ="@(Compile)"
+      Condition="'%(Compile.Filename)' == '$(DelphiProjectName)' and '%(Compile.SubType)' == 'MainSource'" >
+      <Output TaskParameter="Include" ItemName="_DelphiMainSourceFile" />
+    </CreateItem>
+        A blank OutputPath at this point means that the user passed in an invalid Configuration/Platform
+        combination.  Whether this is considered an error or a warning depends on the value of
+        $(SkipInvalidConfigurations). 
+       
+    <InvalidConfigurationError Condition=" '$(SkipInvalidConfigurations)' != 'true' ">true</InvalidConfigurationError>
+    <InvalidConfigurationWarning Condition=" '$(SkipInvalidConfigurations)' == 'true' ">true</InvalidConfigurationWarning>
+  </PropertyGroup>    -->
+
+  <!--
+    ============================================================
+    Target_CheckForInvalidConfigurationAndPlatform
+
+    This target checks for errors in statically defined properties.  It always
+    gets executed before any other target.
+    ============================================================
+    -->
+  <Target
+    Name="Target_CheckForInvalidConfigurationAndPlatform">
+    <!--
+    <Warning Condition=" '$(InvalidConfigurationWarning)' == 'true' " Text="The OutputPath property is not set for this project.  Please check to make sure that you have specified a valid Configuration/Platform combination.  Configuration='$(_OriginalConfiguration)'  Platform='$(_OriginalPlatform)'"/>
+    -->
+    <Message Text="Configuration=$(Configuration)" Importance="Low" />
+    <Message Text="Platform=$(Platform)" Importance="Low" />
+    <!-- Although we try to ensure a trailing slash, it's possible to circumvent this if the property is set on the command line 
+    <Error Condition="'$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')" Text="The OutDir property must end with a trailing slash." />  -->
+  </Target>
+
+  <Target
+    Name="ResolveAssemblyReferences" />
+
+
+</Project>
+

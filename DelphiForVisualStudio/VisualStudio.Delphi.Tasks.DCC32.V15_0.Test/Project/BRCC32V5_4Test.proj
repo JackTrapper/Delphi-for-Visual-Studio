@@ -1,0 +1,63 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Visual Studio -->
+    <ProjectGuid>{8571a20c-2259-4704-9d5e-87a5638f9e46}</ProjectGuid>
+    <!-- Visual Studio -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <!-- Visual Studio -->
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <!-- This is required codegear project name -->
+    <DelphiProjectName>BRCC32V5_4Test</DelphiProjectName>
+    <DelphiIconFile>ICON.ico</DelphiIconFile>
+    <!-- CodeGear - DCC_DCCCompiler -->
+    <DelphiCompiler>DCC32</DelphiCompiler>
+    <DelphiCompilerVersion>V15_0</DelphiCompilerVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DelphiAutoCreateResource>true</DelphiAutoCreateResource>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DelphiAutoCreateResource>true</DelphiAutoCreateResource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiConsoleAssembly)' == 'true'">
+    <DefineConstants>CONSOLEAPP</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Condition="'$(RemoveMainSource)' != 'true'" Include="BRCC32V5_4Test.dpr">
+      <SubType>MainSource</SubType>
+    </Compile>
+    <Compile Condition="'$(MultiMainSource)' == 'true'" Include="BRCC32V5_4Test.dpr">
+      <SubType>MainSource</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- End user can have there own resource -->
+  <ItemGroup>
+    <!-- 
+         if a resource file (*.rc or *.res) exists with the same 
+         name as the project file name, the resource is NOT auto 
+         created even if the property DelphiAutoCreateResource = true
+     -->
+    <CompileDelphiResource Condition="'$(TestExistingResource)' == 'true'" Include="BRCC32V5_4Test.rc">
+      <!-- if the output file name is diferent -->
+      <OutputFileName>BRCC32V5_4Test.res</OutputFileName>
+      <IncludePath></IncludePath>
+      <DefineName></DefineName>
+      <ExcludeEnironmentVar>false</ExcludeEnironmentVar>
+      <Unicode>false</Unicode>
+      <DefautCodePage>1252</DefautCodePage>
+      <DefaultLanguage>4105</DefaultLanguage>
+    </CompileDelphiResource>
+    <CompileDelphiResource Condition="'$(TestWithSecondResource)' == 'true'" Include="TEST.rc"/>
+    </ItemGroup>
+  <ItemGroup Condition="'$(TestDelphiCompiledResource)' == 'true'">
+    <!--
+         NOTE: If the code file does not have the {$R filename} of 
+         the compiled resource file it will not be compiled into the 
+         project.
+    -->
+    <EmbeddedResource Include="BRCC32V5_4Test.res"/>
+  </ItemGroup>
+
+  <Import Project="$(VisualStudioForDelphiPath)Targets\VisualStudio.Delphi.Tasks.Targets" />
+</Project>

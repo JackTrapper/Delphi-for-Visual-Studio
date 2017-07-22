@@ -1,0 +1,303 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="DCC32" AssemblyFile="$(VisualStudioForDelphiPath)VisualStudio.Delphi.Tasks.DCC32.V15_0.dll"/>
+  <UsingTask TaskName="BRCC32" AssemblyFile="$(VisualStudioForDelphiPath)VisualStudio.Delphi.Tasks.DCC32.V15_0.dll"/>
+  
+  <PropertyGroup>
+    <Delphi7Dependencies>$(BuildDependencies)BuildResources;</Delphi7Dependencies>
+  </PropertyGroup>
+  
+  <Target Name="BuildResources" Condition="'@(CompileDelphiResource)' != ''" DependsOnTargets="$(BuildDependencies)">
+    <BRCC32
+       ResourceSourceFile="%(CompileDelphiResource.FullPath)"
+       OutputFileName="%(CompileDelphiResource.OutputFileName)"
+       IncludePath="%(CompileDelphiResource.IncludePath)"
+       DefineName="%(CompileDelphiResource.DefineName)"
+       ExcludeEnironmentVar="%(CompileDelphiResource.ExcludeEnironmentVar)"
+       Unicode="%(CompileDelphiResource.Unicode)"
+       DefautCodePage="%(CompileDelphiResource.DefautCodePage)"
+       DefaultLanguage="%(CompileDelphiResource.DefaultLanguage)"   
+    />  
+    <Message Text="Compiled resource files : @(CompileDelphiResource)" />
+  </Target>
+ 
+  <Target Name="Build" DependsOnTargets="$(Delphi7Dependencies)">
+    <Message Text="$(Delphi7Dependencies)" />
+    <DCC32
+       MainSourceFile="$(DelphiProjectFileName)"
+       UseDefautSwitches="$(DelphiUseDefautSwitches)"
+       RewriteConfigFile="$(DelphiRewriteConfigFile)"
+       
+       UnitAlias="$(DelphiUnitAliasList)"
+       BuildAll="$(DelphiBuildAll)"
+       ConsoleTarget="$(DelphiConsoleAssembly)"
+       DefineConstants="$(DefineConstants)"
+       OutputPath="$(OutputPath)"
+       MapFileType="$(DelphiMapFile)"
+       OutputHints="$(DelphiOutputHints)"
+       IncludePath="@(DelphiIncludePath)"
+       OutputOBJFiles="$(DelphiOutputOBJFiles)"
+       OutputCPPOBJFiles="$(DelphiOutputCPPOBJFiles)"
+       BaseAddress="$(DelphiBaseAddress)"
+       RuntimePackages="$(DelphiRuntimePackages)"
+       BuildModified="$(DelphiBuildModified)"
+       DCUOutputPath="$(DelphiDCUOutputPath)"
+       ObjectPath="@(DelphiObjectPath)"
+       ResourcePath="@(DelphiResourcePath)"
+       UnitSearchPath="@(DelphiUnitSearchPath)"
+       TurboDebuggingInfo="$(DelphiTurboDebuggingInfo)"
+       RemoteDebuggingInfo="$(DelphiRemoteDebuggingInfo)"
+       OutputNeverBuildDcps="$(DelphiOutputNeverBuildDcps)"
+       OldFileNames="$(DelphiOldFileNames)"
+       FullBoolEval="$(DelphiFullBoolEval)"
+       RuntimeAssertions="$(DelphiRuntimeAssertions)"
+       DebugInfo="$(DelphiDebugInfo)"
+       UseImportedRefs="$(DelphiUseImportedRefs)"
+       UseLongString="$(DelphiUseLongString)"
+       IOChecking="$(DelphiIOChecking)"
+       WritableConsts="$(DelphiWritableConsts)"
+       LocalDebugSym="$(DelphiLocalDebugSym)"
+       RuntimeTypeInfo="$(DelphiRuntimeTypeInfo)"
+       Optimization="$(DelphiOptimization)"
+       OpenString="$(DelphiOpenString)"
+       IntOverflowChecking="$(DelphiIntOverflowChecking)"
+       RangeChecking="$(DelphiRangeChecking)"
+       StrongTypedPointer="$(DelphiStrongTypedPointer)"
+       PentiumSafeDivide="$(DelphiPentiumSafeDivide)"
+       StrongVarStrings="$(DelphiStrongVarStrings)"
+       StackFrames="$(DelphiStackFrames)"
+       ExtendedSyntax="$(DelphiExtendedSyntax)"
+       SymbolRef="$(DelphiSymbolRef)"
+       MinEnumSize="$(DelphiMinEnumSize)"
+       RecordAlignment="$(DelphiRecordAlignment)"
+       StackSizes="$(DelphiStackSizes)"
+      Symbol_DeprecatedWarnning="$(DelphiSymbol_DeprecatedEnabled)"
+      Symbol_LibraryWarnning="$(DelphiSymbol_LibraryEnabled)"
+      Symbol_PlatformWarnning="$(DelphiSymbol_PlatformEnabled)"
+      Unit_LibraryWarnning="$(DelphiUnit_LibraryEnabled)"
+      Unit_PlatformWarnning="$(DelphiUnit_PlatformEnabled)"
+      Unit_DeprecatedWarnning="$(DelphiUnit_DeprecatedEnabled)"
+      Hresult_CompatWarnning="$(DelphiHresult_CompatEnabled)"
+      Hiding_MemberWarnning="$(DelphiHiding_MemberEnabled)"
+      Hidden_VirtualWarnning="$(DelphiHidden_VirtualEnabled)"
+      GarbageWarnning="$(DelphiGarbageEnabled)"
+      Bounds_ErrorWarnning="$(DelphiBounds_ErrorEnabled)"
+      Zero_Nil_CompatWarnning="$(DelphiZero_Nil_CompatEnabled)"
+      String_Const_TruncedWarnning="$(DelphiString_Const_TruncedEnabled)"
+      For_Loop_Var_VarparWarnning="$(DelphiFor_Loop_Var_VarparEnabled)"
+      Typed_Const_VarparWarnning="$(DelphiTyped_Const_VarparEnabled)"
+      Asg_To_Typed_ConstWarnning="$(DelphiAsg_To_Typed_ConstEnabled)"
+      Case_Label_RangeWarnning="$(DelphiCase_Label_RangeEnabled)"
+      For_VariableWarnning="$(DelphiFor_VariableEnabled)"
+      Constructing_AbstractWarnning="$(DelphiConstructing_AbstractEnabled)"
+      Comparison_FalseWarnning="$(DelphiComparison_FalseEnabled)"
+      Comparison_TrueWarnning="$(DelphiComparison_TrueEnabled)"
+      Comparing_Signed_UnsignedWarnning="$(DelphiComparing_Signed_UnsignedEnabled)"
+      Combining_Signed_UnsignedWarnning="$(DelphiCombining_Signed_UnsignedEnabled)"
+      Unsupported_ConstructWarnning="$(DelphiUnsupported_ConstructEnabled)"
+      File_OpenWarnning="$(DelphiFile_OpenEnabled)"
+      File_Open_UnitsrcWarnning="$(DelphiFile_Open_UnitsrcEnabled)"
+      Bad_Global_SymbolWarnning="$(DelphiBad_Global_SymbolEnabled)"
+      Duplicate_Ctor_DtorWarnning="$(DelphiDuplicate_Ctor_DtorEnabled)"
+      Invalid_DirectiveWarnning="$(DelphiInvalid_DirectiveEnabled)"
+      Package_No_LinkWarnning="$(DelphiPackage_No_LinkEnabled)"
+      Packaged_ThreadvarWarnning="$(DelphiPackaged_ThreadvarEnabled)"
+      Implicit_ImportWarnning="$(DelphiImplicit_ImportEnabled)"
+      Hppemit_IgnoredWarnning="$(DelphiHppemit_IgnoredEnabled)"
+      No_RetvalWarnning="$(DelphiNo_RetvalEnabled)"
+      Use_Before_DefWarnning="$(DelphiUse_Before_DefEnabled)"
+      For_Loop_Var_UndefWarnning="$(DelphiFor_Loop_Var_UndefEnabled)"
+      Unit_Name_MismatchWarnning="$(DelphiUnit_Name_MismatchEnabled)"
+      No_Cfg_File_FoundWarnning="$(DelphiNo_Cfg_File_FoundEnabled)"
+      Implicit_VariantsWarnning="$(DelphiImplicit_VariantsEnabled)"
+      Unicode_To_LocaleWarnning="$(DelphiUnicode_To_LocaleEnabled)"
+      Locale_To_UnicodeWarnning="$(DelphiLocale_To_UnicodeEnabled)"
+      Imagebase_MultipleWarnning="$(DelphiImagebase_MultipleEnabled)"
+      Suspicious_TypecastWarnning="$(DelphiSuspicious_TypecastEnabled)"
+      Private_PropaccessorWarnning="$(DelphiPrivate_PropaccessorEnabled)"
+      Unsafe_TypeWarnning="$(DelphiUnsafe_TypeEnabled)"
+      Unsafe_CodeWarnning="$(DelphiUnsafe_CodeEnabled)"
+      Unsafe_CastWarnning="$(DelphiUnsafe_CastEnabled)"
+      Message_DirectiveWarnning="$(DelphiMessage_DirectiveEnabled)"/>
+  </Target>
+
+
+  <PropertyGroup Condition="'$(DelphiSymbol_DeprecatedEnabled)' == ''">
+    <DelphiSymbol_DeprecatedEnabled>true</DelphiSymbol_DeprecatedEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiSymbol_LibraryEnabled)' == ''">
+    <DelphiSymbol_LibraryEnabled>true</DelphiSymbol_LibraryEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiSymbol_PlatformEnabled)' == ''">
+    <DelphiSymbol_PlatformEnabled>true</DelphiSymbol_PlatformEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnit_LibraryEnabled)' == ''">
+    <DelphiUnit_LibraryEnabled>true</DelphiUnit_LibraryEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnit_PlatformEnabled)' == ''">
+    <DelphiUnit_PlatformEnabled>true</DelphiUnit_PlatformEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnit_DeprecatedEnabled)' == ''">
+    <DelphiUnit_DeprecatedEnabled>true</DelphiUnit_DeprecatedEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiHresult_CompatEnabled)' == ''">
+    <DelphiHresult_CompatEnabled>true</DelphiHresult_CompatEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiHiding_MemberEnabled)' == ''">
+    <DelphiHiding_MemberEnabled>true</DelphiHiding_MemberEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiHidden_VirtualEnabled)' == ''">
+    <DelphiHidden_VirtualEnabled>true</DelphiHidden_VirtualEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiGarbageEnabled)' == ''">
+    <DelphiGarbageEnabled>true</DelphiGarbageEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiBounds_ErrorEnabled)' == ''">
+    <DelphiBounds_ErrorEnabled>true</DelphiBounds_ErrorEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiZero_Nil_CompatEnabled)' == ''">
+    <DelphiZero_Nil_CompatEnabled>true</DelphiZero_Nil_CompatEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiString_Const_TruncedEnabled)' == ''">
+    <DelphiString_Const_TruncedEnabled>true</DelphiString_Const_TruncedEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiFor_Loop_Var_VarparEnabled)' == ''">
+    <DelphiFor_Loop_Var_VarparEnabled>true</DelphiFor_Loop_Var_VarparEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiTyped_Const_VarparEnabled)' == ''">
+    <DelphiTyped_Const_VarparEnabled>true</DelphiTyped_Const_VarparEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiAsg_To_Typed_ConstEnabled)' == ''">
+    <DelphiAsg_To_Typed_ConstEnabled>true</DelphiAsg_To_Typed_ConstEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiCase_Label_RangeEnabled)' == ''">
+    <DelphiCase_Label_RangeEnabled>true</DelphiCase_Label_RangeEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiFor_VariableEnabled)' == ''">
+    <DelphiFor_VariableEnabled>true</DelphiFor_VariableEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiConstructing_AbstractEnabled)' == ''">
+    <DelphiConstructing_AbstractEnabled>true</DelphiConstructing_AbstractEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiComparison_FalseEnabled)' == ''">
+    <DelphiComparison_FalseEnabled>true</DelphiComparison_FalseEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiComparison_TrueEnabled)' == ''">
+    <DelphiComparison_TrueEnabled>true</DelphiComparison_TrueEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiComparing_Signed_UnsignedEnabled)' == ''">
+    <DelphiComparing_Signed_UnsignedEnabled>true</DelphiComparing_Signed_UnsignedEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiCombining_Signed_UnsignedEnabled)' == ''">
+    <DelphiCombining_Signed_UnsignedEnabled>true</DelphiCombining_Signed_UnsignedEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnsupported_ConstructEnabled)' == ''">
+    <DelphiUnsupported_ConstructEnabled>true</DelphiUnsupported_ConstructEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiFile_OpenEnabled)' == ''">
+    <DelphiFile_OpenEnabled>true</DelphiFile_OpenEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiFile_Open_UnitsrcEnabled)' == ''">
+    <DelphiFile_Open_UnitsrcEnabled>true</DelphiFile_Open_UnitsrcEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiBad_Global_SymbolEnabled)' == ''">
+    <DelphiBad_Global_SymbolEnabled>true</DelphiBad_Global_SymbolEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiDuplicate_Ctor_DtorEnabled)' == ''">
+    <DelphiDuplicate_Ctor_DtorEnabled>true</DelphiDuplicate_Ctor_DtorEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiInvalid_DirectiveEnabled)' == ''">
+    <DelphiInvalid_DirectiveEnabled>true</DelphiInvalid_DirectiveEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiPackage_No_LinkEnabled)' == ''">
+    <DelphiPackage_No_LinkEnabled>true</DelphiPackage_No_LinkEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiPackaged_ThreadvarEnabled)' == ''">
+    <DelphiPackaged_ThreadvarEnabled>true</DelphiPackaged_ThreadvarEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiImplicit_ImportEnabled)' == ''">
+    <DelphiImplicit_ImportEnabled>true</DelphiImplicit_ImportEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiHppemit_IgnoredEnabled)' == ''">
+    <DelphiHppemit_IgnoredEnabled>true</DelphiHppemit_IgnoredEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiNo_RetvalEnabled)' == ''">
+    <DelphiNo_RetvalEnabled>true</DelphiNo_RetvalEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUse_Before_DefEnabled)' == ''">
+    <DelphiUse_Before_DefEnabled>true</DelphiUse_Before_DefEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiFor_Loop_Var_UndefEnabled)' == ''">
+    <DelphiFor_Loop_Var_UndefEnabled>true</DelphiFor_Loop_Var_UndefEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnit_Name_MismatchEnabled)' == ''">
+    <DelphiUnit_Name_MismatchEnabled>true</DelphiUnit_Name_MismatchEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiNo_Cfg_File_FoundEnabled)' == ''">
+    <DelphiNo_Cfg_File_FoundEnabled>true</DelphiNo_Cfg_File_FoundEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiImplicit_VariantsEnabled)' == ''">
+    <DelphiImplicit_VariantsEnabled>true</DelphiImplicit_VariantsEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnicode_To_LocaleEnabled)' == ''">
+    <DelphiUnicode_To_LocaleEnabled>true</DelphiUnicode_To_LocaleEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiLocale_To_UnicodeEnabled)' == ''">
+    <DelphiLocale_To_UnicodeEnabled>true</DelphiLocale_To_UnicodeEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiImagebase_MultipleEnabled)' == ''">
+    <DelphiImagebase_MultipleEnabled>true</DelphiImagebase_MultipleEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiSuspicious_TypecastEnabled)' == ''">
+    <DelphiSuspicious_TypecastEnabled>true</DelphiSuspicious_TypecastEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiPrivate_PropaccessorEnabled)' == ''">
+    <DelphiPrivate_PropaccessorEnabled>true</DelphiPrivate_PropaccessorEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnsafe_TypeEnabled)' == ''">
+    <DelphiUnsafe_TypeEnabled>true</DelphiUnsafe_TypeEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnsafe_CodeEnabled)' == ''">
+    <DelphiUnsafe_CodeEnabled>true</DelphiUnsafe_CodeEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUnsafe_CastEnabled)' == ''">
+    <DelphiUnsafe_CastEnabled>true</DelphiUnsafe_CastEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiMessage_DirectiveEnabled)' == ''">
+    <DelphiMessage_DirectiveEnabled>true</DelphiMessage_DirectiveEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiRuntimeAssertions)' == ''">
+    <DelphiRuntimeAssertions>true</DelphiRuntimeAssertions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiDebugInfo)' == ''">
+    <DelphiDebugInfo>true</DelphiDebugInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUseImportedRefs)' == ''">
+    <DelphiUseImportedRefs>true</DelphiUseImportedRefs>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiUseLongString)' == ''">
+    <DelphiUseLongString>true</DelphiUseLongString>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiIOChecking)' == ''">
+    <DelphiIOChecking>true</DelphiIOChecking>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiLocalDebugSym)' == ''">
+    <DelphiLocalDebugSym>true</DelphiLocalDebugSym>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiOptimization)' == ''">
+    <DelphiOptimization>true</DelphiOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiOpenString)' == ''">
+    <DelphiOpenString>true</DelphiOpenString>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiStrongVarStrings)' == ''">
+    <DelphiStrongVarStrings>true</DelphiStrongVarStrings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiExtendedSyntax)' == ''">
+    <DelphiExtendedSyntax>true</DelphiExtendedSyntax>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DelphiSymbolRef)' == ''">
+    <DelphiSymbolRef>true</DelphiSymbolRef>
+  </PropertyGroup>
+
+</Project>
+

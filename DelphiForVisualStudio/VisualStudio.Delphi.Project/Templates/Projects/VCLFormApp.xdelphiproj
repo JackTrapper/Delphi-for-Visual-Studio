@@ -1,0 +1,69 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+    <DelphiCompiler>DCC32</DelphiCompiler>
+    <DelphiCompilerVersion>V15_0</DelphiCompilerVersion>
+    <!-- CodeGear - DCC_DependencyCheckOutputName -->
+    <DelphiDependencyCheckOutputName>$safeprojectname$.exe</DelphiDependencyCheckOutputName>
+    <!-- CodeGear - MainSource -->
+    <DelphiMainSource>$safeprojectname$.dpr</DelphiMainSource>
+  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>.\</OutputPath>
+		<EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <!-- CodeGear - <Version>7.0</Version> -->
+    <!-- CodeGear - DCC_DebugInformation -->
+    <DelphiDebugInformation>False</DelphiDebugInformation>
+    <!-- CodeGear - DCC_LocalDebugSymbols -->
+    <DelphiLocalDebugSymbols>False</DelphiLocalDebugSymbols>
+    <!-- CodeGear - DCC_SymbolReferenceInfo -->
+    <DelphiSymbolReferenceInfo>0</DelphiSymbolReferenceInfo>
+    <!-- CodeGear - DCC_Define -->
+    <DelphiDefine>RELEASE</DelphiDefine>
+  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>.\</OutputPath>
+		<EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <!-- CodeGear - <Version>7.0</Version> -->
+    <!-- CodeGear - DCC_Define -->
+    <DelphiDefine>DEBUG</DelphiDefine>
+  </PropertyGroup>
+	<ItemGroup>
+    <!-- CodeGear - DelphiCompile -->
+    <Compile Include="$safeprojectname$.dpr">
+      <!-- CodeGear - MainSource -->
+      <SubType>MainSource</SubType>
+    </Compile>
+    <!-- CodeGear - DCCReference -->
+    <Compile Include="Unit1.pas">
+      <!-- CodeGear - <Form>Form1</Form> -->
+      <SubType>Form:Form1</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- I am droping the use of keeping these files in the project (WorkItem 8808)
+    <Content Include="$safeprojectname$.dof">
+      <DependentUpon>$safeprojectname$.dpr</DependentUpon>
+    </Content>
+    <Content Include="$safeprojectname$.cfg">
+      <DependentUpon>$safeprojectname$.dpr</DependentUpon>
+    </Content>
+    -->
+    <EmbeddedResource Include="$safeprojectname$.res">
+      <DependentUpon>$safeprojectname$.dpr</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Unit1.dfm" >
+      <DependentUpon>Unit1.pas</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+
+  <Import Project="$(VisualStudioForDelphiPath)Targets\VisualStudio.Delphi.Tasks.Targets" />
+</Project>

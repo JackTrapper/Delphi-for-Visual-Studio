@@ -1,0 +1,26 @@
+DCC32 object will be the options holder.
+
+The VisualStudio.Delpi.Tasks.DLL holds the abstract object
+named TDelphiCompilerTool that all Delphi compiler command 
+line tools task will inheret from.  The name of the task
+can be anything as the base object helps compile Delphi
+projects but does not know what type of Delphi projects
+like .NET or Win32.
+TDelphiCompilerTool has feature like building the command
+line based on properites that have the attribute CompilerCommand.
+
+
+All Delphi for Visual studio projects will import the abstract
+target named VisualStudio.Delphi.Tasks.Targets.  This
+Targets file will use the project properties "DelphiCompiler" and
+"DelphiCompilerVersion" along with the optional "CompilerTargetsPath"
+to build the full location and filename of the compiler Targets
+file. 
+(Example: 
+$(CompilerTargetsPath)VisualStudio.Delphi.Tasks.$(DelphiCompiler).$(DelphiCompilerVersion).Targets
+)
+
+Each Delphi command line compiler Targets file will have a compile task and
+the Target named "Build" with DependsOnTargets="$(BuildDependencies)".
+ 
+

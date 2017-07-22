@@ -1,0 +1,59 @@
+﻿<!-- The targets named in the DefaultTargets are what get executed nothing else -->
+<Project DefaultTargets="Build;DisplayMessages" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- A target is just a name of a group of things to do -->
+  <Target Name="Build"/>
+  <!-- Targets can requier other Targets to run first by adding them to the DependsOnTargets list -->
+  <!-- This target runs the message commands -->
+  <Target Name="DisplayMessages" DependsOnTargets="HelloWorld">
+    <!-- <Message> is a "Task" that uses a default property -->
+    <Message Text="Project File Name = $(MSBuildProjectFile)" />
+    <Message Text="Project Extension = $(MSBuildProjectExtension)" />
+    <!-- this message uses a envirnment variable  -->
+    <Message Text="Temp Folder = $(Temp)" />
+    <!-- Properties do not have to exist first to be used -->
+    <Message Text="Defined Property = $(DefinedProperty)" />
+    <!-- displays a list of all Include files delimited with ; -->
+    <Message Text="Defined Property = @(MyItem)" />
+    <!-- displays a list of all MyMetaData property delimited with ; -->
+    <Message Text="Defined Property = @(MyItem->'%(MyMetaData)')" />
+    <!-- Just File Names ; -->
+    <Message Text="Filename Transform = @(MyItem->'%(Filename)')" />
+    <!-- Just File Ext ; -->
+    <Message Text="Extension Transform = @(MyItem->'%(Extension)')" />
+    <!-- What the "Include" evalutes to  -->
+    <Message Text="Identity Transform = @(MyItem->'%(Identity)')" />
+    <!-- This repeats the task for each item -->
+    <Message Text="repeat Task for each item = %(MyItem.MyMetaData)" />
+  </Target>
+
+  <Target Name="HelloWorld">
+    <Message Text="Hello World" />
+  </Target>
+  <!-- Properties are assigned in order -->
+  <PropertyGroup>
+    <DefinedProperty>This Property should not exist</DefinedProperty>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefinedProperty>The last assignment of a property wins!</DefinedProperty>
+    <DCC_DCCCompiler>Common</DCC_DCCCompiler>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <MyItem Include="MyFile1.test">
+      <MyMetaData>My Meta1</MyMetaData>
+    </MyItem>
+    <MyItem Include="MyFile2.test">
+      <MyMetaData>My Meta2</MyMetaData>
+    </MyItem>
+    <MyItem Include="*.proj">
+      <MyMetaData>My Meta3</MyMetaData>
+    </MyItem>
+  </ItemGroup>
+  <!--
+  <ItemGroup>
+    <DelphiForVisualStudioTargets Include="VisualStudio.Delphi.*.Targets"/>
+  </ItemGroup>
+  <Import Project="$(CompilerTargetsPath)VisualStudio.Delphi.$(DCC_DCCCompiler).Targets" />
+
+   -->
+</Project>

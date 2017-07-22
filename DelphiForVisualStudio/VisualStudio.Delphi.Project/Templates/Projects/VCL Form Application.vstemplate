@@ -1,0 +1,25 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>VCL Form Application</Name>
+		<Description>A project for creating native Win32 VCL form application</Description>
+		<Icon>__Icon.ico</Icon>
+		<ProjectType>Delphi</ProjectType>
+		<SortOrder>50</SortOrder>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>ConsoleApplication</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="VCLFormApp.xdelphiproj" TargetFileName="$safeprojectname$.delphiproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.dpr" OpenInEditor="false">Project1.dpr</ProjectItem>
+		  <!-- Removed because not used in project (WorkItem 8808)
+      <ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.dof" OpenInEditor="false">Project1.dof</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.cfg" OpenInEditor="false">Project1.cfg</ProjectItem>
+      -->
+			<ProjectItem ReplaceParameters="false" TargetFileName="$safeprojectname$.res" OpenInEditor="false">Project1.res</ProjectItem>
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true">Unit1.pas</ProjectItem>
+			<ProjectItem ReplaceParameters="true" OpenInEditor="false">Unit1.dfm</ProjectItem>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

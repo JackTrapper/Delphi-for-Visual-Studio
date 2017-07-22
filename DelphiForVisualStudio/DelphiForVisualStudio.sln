@@ -1,0 +1,231 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A650CDF-AB39-444E-84EE-8E85A54A5780}"
+	ProjectSection(SolutionItems) = preProject
+		DelphiForVisualStudio.vsmdi = DelphiForVisualStudio.vsmdi
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+	EndProjectSection
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bin", "Bin", "{17217F30-9B0B-4B4A-8F0D-0C40E8CE06C5}"
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example CodeGear Delphi Project", "Example CodeGear Delphi Project", "{6ACD77D2-17F8-49F9-8174-32F7AC3D2C03}"
+	ProjectSection(SolutionItems) = preProject
+		Bin\Example CodeGear Delphi Project\Project1.dpr = Bin\Example CodeGear Delphi Project\Project1.dpr
+		Bin\Example CodeGear Delphi Project\Project1.dproj = Bin\Example CodeGear Delphi Project\Project1.dproj
+		Bin\Example CodeGear Delphi Project\Project1.res = Bin\Example CodeGear Delphi Project\Project1.res
+		Bin\Example CodeGear Delphi Project\Unit1.dfm = Bin\Example CodeGear Delphi Project\Unit1.dfm
+		Bin\Example CodeGear Delphi Project\Unit1.pas = Bin\Example CodeGear Delphi Project\Unit1.pas
+	EndProjectSection
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{6323403A-9464-44DE-883D-54A3C4E39D6A}"
+	ProjectSection(SolutionItems) = preProject
+		Project\ConfigProvider.cs = Project\ConfigProvider.cs
+		Project\ConfigurationProperties.cs = Project\ConfigurationProperties.cs
+		Project\DataObject.cs = Project\DataObject.cs
+		Project\DependentFileNode.cs = Project\DependentFileNode.cs
+		Project\DesignPropertyDescriptor.cs = Project\DesignPropertyDescriptor.cs
+		Project\EnumDependencies.cs = Project\EnumDependencies.cs
+		Project\FileChangeManager.cs = Project\FileChangeManager.cs
+		Project\FileDocumentManager.cs = Project\FileDocumentManager.cs
+		Project\FileNode.cs = Project\FileNode.cs
+		Project\FlavoredProjectBase.cs = Project\FlavoredProjectBase.cs
+		Project\FlavoredProjectFactoryBase.cs = Project\FlavoredProjectFactoryBase.cs
+		Project\FolderNode.cs = Project\FolderNode.cs
+		Project\HierarchyNode.cs = Project\HierarchyNode.cs
+		Project\IDEBuildLogger.cs = Project\IDEBuildLogger.cs
+		Project\ImageHandler.cs = Project\ImageHandler.cs
+		Project\Interfaces.cs = Project\Interfaces.cs
+		Project\LocalizableProperties.cs = Project\LocalizableProperties.cs
+		Project\Microsoft.VisualStudio.Package.Project.cs = Project\Microsoft.VisualStudio.Package.Project.cs
+		Project\Microsoft.VisualStudio.Package.Project.Designer.cs = Project\Microsoft.VisualStudio.Package.Project.Designer.cs
+		Project\Microsoft.VisualStudio.Package.Project.resx = Project\Microsoft.VisualStudio.Package.Project.resx
+		Project\MPFProjectAll.files = Project\MPFProjectAll.files
+		Project\NestedProjectBuildDependency.cs = Project\NestedProjectBuildDependency.cs
+		Project\NestedProjectNode.cs = Project\NestedProjectNode.cs
+		Project\NodeProperties.cs = Project\NodeProperties.cs
+		Project\OleServiceProvider.cs = Project\OleServiceProvider.cs
+		Project\Output.cs = Project\Output.cs
+		Project\OutputGroup.cs = Project\OutputGroup.cs
+		Project\ProjectAggregator2Interops.cs = Project\ProjectAggregator2Interops.cs
+		Project\ProjectBase.files = Project\ProjectBase.files
+		Project\ProjectConfig.cs = Project\ProjectConfig.cs
+		Project\ProjectContainerNode.cs = Project\ProjectContainerNode.cs
+		Project\ProjectDesignerDocumentManager.cs = Project\ProjectDesignerDocumentManager.cs
+		Project\ProjectDocumentsListener.cs = Project\ProjectDocumentsListener.cs
+		Project\ProjectElement.cs = Project\ProjectElement.cs
+		Project\ProjectFactory.cs = Project\ProjectFactory.cs
+		Project\ProjectFileConstants.cs = Project\ProjectFileConstants.cs
+		Project\ProjectNode.CopyPaste.cs = Project\ProjectNode.CopyPaste.cs
+		Project\ProjectNode.cs = Project\ProjectNode.cs
+		Project\ProjectNode.Events.cs = Project\ProjectNode.Events.cs
+		Project\ProjectOptions.cs = Project\ProjectOptions.cs
+		Project\ProjectPackage.cs = Project\ProjectPackage.cs
+		Project\ProjectReferenceNode.cs = Project\ProjectReferenceNode.cs
+		Project\PropertiesEditorLauncher.cs = Project\PropertiesEditorLauncher.cs
+		Project\ReferenceContainerNode.cs = Project\ReferenceContainerNode.cs
+		Project\ReferenceNode.cs = Project\ReferenceNode.cs
+		Project\RegisteredProjectType.cs = Project\RegisteredProjectType.cs
+		Project\SelectionListener.cs = Project\SelectionListener.cs
+		Project\SettingsPage.cs = Project\SettingsPage.cs
+		Project\SingleFileGenerator.cs = Project\SingleFileGenerator.cs
+		Project\SingleFileGeneratorFactory.cs = Project\SingleFileGeneratorFactory.cs
+		Project\SolutionListener.cs = Project\SolutionListener.cs
+		Project\SolutionListenerForBuildDependencyUpdate.cs = Project\SolutionListenerForBuildDependencyUpdate.cs
+		Project\SolutionListenerForProjectEvents.cs = Project\SolutionListenerForProjectEvents.cs
+		Project\SolutionListenerForProjectOpen.cs = Project\SolutionListenerForProjectOpen.cs
+		Project\SolutionListenerForProjectReferenceUpdate.cs = Project\SolutionListenerForProjectReferenceUpdate.cs
+		Project\StructuresEnums.cs = Project\StructuresEnums.cs
+		Project\SuspendFileChanges.cs = Project\SuspendFileChanges.cs
+		Project\TokenProcessor.cs = Project\TokenProcessor.cs
+		Project\Tracing.cs = Project\Tracing.cs
+		Project\TrackDocumentsHelper.cs = Project\TrackDocumentsHelper.cs
+		Project\TypeConverters.cs = Project\TypeConverters.cs
+		Project\Url.cs = Project\Url.cs
+		Project\Utilities.cs = Project\Utilities.cs
+		Project\VsCommands.cs = Project\VsCommands.cs
+		Project\VSMDCodeDomProvider.cs = Project\VSMDCodeDomProvider.cs
+		Project\VSShellUtilities.cs = Project\VSShellUtilities.cs
+		Project\WebProjectBase.Files = Project\WebProjectBase.Files
+	EndProjectSection
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.Language", "VisualStudio.Delphi.Language\VisualStudio.Delphi.Language.csproj", "{89C204BD-F6DF-42BB-900B-C11B61390023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csflex", "csflex-1.4\csflex.csproj", "{F4FDECD9-41DC-430C-A1E8-45ED8AB78C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDelphiScanner", "csflex-1.4\TestDelphiScanner\TestDelphiScanner.csproj", "{3829FB8A-FC98-46F6-AA87-DD451847290E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.ConverterWizard", "VisualStudio.Delphi.ConverterWizard\VisualStudio.Delphi.ConverterWizard.csproj", "{9E769BC4-EDFD-4FA2-B546-2316B6556BF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.ConverterWizard.Test", "VisualStudio.Delphi.ConverterWizard.Test\VisualStudio.Delphi.ConverterWizard.Test.csproj", "{46E9267C-BA9F-45C7-9B94-386888612C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi", "VisualStudio.Delphi\VisualStudio.Delphi.csproj", "{E952AF38-B1B1-48E2-B800-36753722E512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.Tasks", "VisualStudio.Delphi.Tasks\VisualStudio.Delphi.Tasks.csproj", "{9C762B07-6D25-47C7-A33A-CE0EDCA1F968}"
+	ProjectSection(ProjectDependencies) = postProject
+		{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46} = {925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.Tasks.DCC32.V15_0", "VisualStudio.Delphi.Tasks.DCC32.V15_0\VisualStudio.Delphi.Tasks.DCC32.V15_0.csproj", "{D4FDF476-7B47-4C12-9437-F0C8365FFB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.Tasks.DCC32.V15_0.Test", "VisualStudio.Delphi.Tasks.DCC32.V15_0.Test\VisualStudio.Delphi.Tasks.DCC32.V15_0.Test.csproj", "{D3CF38B5-AB52-4096-8393-6D123705F3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.MSBuild.XSD", "VisualStudio.MSBuild\VisualStudio.MSBuild.XSD.csproj", "{AF368B03-EC25-4C63-8388-376F13BF596A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Delphi.Project", "VisualStudio.Delphi.Project\VisualStudio.Delphi.Project.csproj", "{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs03.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = csflex-1.4\\csflex.csproj
+		SccProjectName1 = csflex-1.4
+		SccLocalPath1 = csflex-1.4
+		SccProjectUniqueName2 = csflex-1.4\\TestDelphiScanner\\TestDelphiScanner.csproj
+		SccProjectName2 = csflex-1.4/TestDelphiScanner
+		SccLocalPath2 = csflex-1.4\\TestDelphiScanner
+		SccProjectUniqueName3 = VisualStudio.Delphi.Language\\VisualStudio.Delphi.Language.csproj
+		SccProjectName3 = VisualStudio.Delphi.Language
+		SccLocalPath3 = VisualStudio.Delphi.Language
+		SccProjectUniqueName4 = VisualStudio.Delphi.ConverterWizard\\VisualStudio.Delphi.ConverterWizard.csproj
+		SccProjectName4 = VisualStudio.Delphi.ConverterWizard
+		SccLocalPath4 = VisualStudio.Delphi.ConverterWizard
+		SccProjectUniqueName5 = VisualStudio.Delphi.ConverterWizard.Test\\VisualStudio.Delphi.ConverterWizard.Test.csproj
+		SccProjectName5 = VisualStudio.Delphi.ConverterWizard.Test
+		SccLocalPath5 = VisualStudio.Delphi.ConverterWizard.Test
+		SccProjectUniqueName6 = VisualStudio.Delphi\\VisualStudio.Delphi.csproj
+		SccProjectName6 = VisualStudio.Delphi
+		SccLocalPath6 = VisualStudio.Delphi
+		SccProjectUniqueName7 = VisualStudio.Delphi.Tasks\\VisualStudio.Delphi.Tasks.csproj
+		SccProjectName7 = VisualStudio.Delphi.Tasks
+		SccLocalPath7 = VisualStudio.Delphi.Tasks
+		SccProjectUniqueName8 = VisualStudio.Delphi.Tasks.DCC32.V15_0\\VisualStudio.Delphi.Tasks.DCC32.V15_0.csproj
+		SccProjectName8 = VisualStudio.Delphi.Tasks.DCC32.V15_0
+		SccLocalPath8 = VisualStudio.Delphi.Tasks.DCC32.V15_0
+		SccProjectUniqueName9 = VisualStudio.Delphi.Tasks.DCC32.V15_0.Test\\VisualStudio.Delphi.Tasks.DCC32.V15_0.Test.csproj
+		SccProjectName9 = VisualStudio.Delphi.Tasks.DCC32.V15_0.Test
+		SccLocalPath9 = VisualStudio.Delphi.Tasks.DCC32.V15_0.Test
+		SccProjectUniqueName10 = VisualStudio.MSBuild\\VisualStudio.MSBuild.XSD.csproj
+		SccProjectName10 = VisualStudio.MSBuild
+		SccLocalPath10 = VisualStudio.MSBuild
+		SccProjectUniqueName11 = VisualStudio.Delphi.Project\\VisualStudio.Delphi.Project.csproj
+		SccProjectName11 = VisualStudio.Delphi.Project
+		SccLocalPath11 = VisualStudio.Delphi.Project
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = DelphiForVisualStudio.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89C204BD-F6DF-42BB-900B-C11B61390023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C204BD-F6DF-42BB-900B-C11B61390023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C204BD-F6DF-42BB-900B-C11B61390023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C204BD-F6DF-42BB-900B-C11B61390023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FDECD9-41DC-430C-A1E8-45ED8AB78C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FDECD9-41DC-430C-A1E8-45ED8AB78C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FDECD9-41DC-430C-A1E8-45ED8AB78C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FDECD9-41DC-430C-A1E8-45ED8AB78C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3829FB8A-FC98-46F6-AA87-DD451847290E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3829FB8A-FC98-46F6-AA87-DD451847290E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3829FB8A-FC98-46F6-AA87-DD451847290E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3829FB8A-FC98-46F6-AA87-DD451847290E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E769BC4-EDFD-4FA2-B546-2316B6556BF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E769BC4-EDFD-4FA2-B546-2316B6556BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E769BC4-EDFD-4FA2-B546-2316B6556BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E769BC4-EDFD-4FA2-B546-2316B6556BF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E9267C-BA9F-45C7-9B94-386888612C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E9267C-BA9F-45C7-9B94-386888612C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E9267C-BA9F-45C7-9B94-386888612C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E9267C-BA9F-45C7-9B94-386888612C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E952AF38-B1B1-48E2-B800-36753722E512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E952AF38-B1B1-48E2-B800-36753722E512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E952AF38-B1B1-48E2-B800-36753722E512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E952AF38-B1B1-48E2-B800-36753722E512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C762B07-6D25-47C7-A33A-CE0EDCA1F968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C762B07-6D25-47C7-A33A-CE0EDCA1F968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C762B07-6D25-47C7-A33A-CE0EDCA1F968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C762B07-6D25-47C7-A33A-CE0EDCA1F968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4FDF476-7B47-4C12-9437-F0C8365FFB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4FDF476-7B47-4C12-9437-F0C8365FFB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4FDF476-7B47-4C12-9437-F0C8365FFB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4FDF476-7B47-4C12-9437-F0C8365FFB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3CF38B5-AB52-4096-8393-6D123705F3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CF38B5-AB52-4096-8393-6D123705F3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CF38B5-AB52-4096-8393-6D123705F3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CF38B5-AB52-4096-8393-6D123705F3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF368B03-EC25-4C63-8388-376F13BF596A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF368B03-EC25-4C63-8388-376F13BF596A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF368B03-EC25-4C63-8388-376F13BF596A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF368B03-EC25-4C63-8388-376F13BF596A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925EBB1E-7C8D-4F6C-AB97-2A96AC8E4B46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6ACD77D2-17F8-49F9-8174-32F7AC3D2C03} = {17217F30-9B0B-4B4A-8F0D-0C40E8CE06C5}
+	EndGlobalSection
+	GlobalSection(TextTemplating) = postSolution
+		TextTemplating = 1
+	EndGlobalSection
+EndGlobal

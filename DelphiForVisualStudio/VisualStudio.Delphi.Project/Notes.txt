@@ -1,0 +1,25 @@
+Reseting Visual Studio: run..
+"C:\Program Files\Visual Studio 2005 SDK\2007.02\VisualStudioIntegration\Tools\Bin\vsregex.exe" GetOrig 8.0 Exp
+
+- <Fixed> Renaming the project changes the VS project data
+- <Fixed> Rename saves the file instead of renaming it (overide RenameProjectFile and change behaviour) 
+- <Fixed> Renaming a .PAS files causes and error when checked in but works but not of child file nodes (.DFM) 
+- <Fixed> Project is not checked out when modified (adding item like folder or rename of file) because it is not marked as readonly
+- <Fixed> Renaming of delphi Pas and dfm files do not function
+- <Fixed> Folder Nodes causes an exception when closing as VS ask for BuildAction property that does not exist
+- <Fixed> File name property for dependent files must be read only
+- Change DelphiProject.ProjectType to resource and proper name
+- <Fixed> Sub object of DPR can not rename (Change DependentFileNode.GetEditLabel to return null.)
+- <Fixed> DPR file must not be dragable 
+- Only one DPR can exist in project
+- Items like folders and files do not have a delete context menu item
+- Saving of the DPR should refresh VS project
+- Command should exist to refresh project.
+- Check Project automation for access to .NET References
+- Custom tool is needed for dependent files.
+- Icons and image indexes
+- Files can not be renamed to .DPR
+- Files must not be renamed with the same name as the .DPR file
+- Fix TDelphiSource Delphi string methods to support character litierals like #13
+
+

@@ -1,0 +1,11 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="Build">
+    <Error Condition="'$(DelphiCompiler)' != ''"
+      Text="No compiler 'targets' file exits for '$(DelphiCompiler)' unable to find '$(DelphiCompilerTargetsFile)'"/>
+    <Error Condition="'$(DelphiCompiler)' == ''"
+      Text="Missing property value for 'DelphiCompiler'"/>
+    <Error Condition="'$(DelphiCompilerVersion)' == ''"
+      Text="Missing property value for 'DelphiCompilerVersion'"/>
+  </Target>
+</Project>
